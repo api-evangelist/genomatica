@@ -1,0 +1,53 @@
+# Genomatica (Geno)
+
+> Genomatica, which markets itself as Geno, is a San Diego biotechnology and
+> sustainable materials company founded in 1998. It engineers microbes and
+> fermentation processes that turn plant sugars into the same chemical building
+> blocks the world currently makes from fossil fuels, and licenses those
+> processes to chemical producers. Genomatica is a process-technology and
+> materials licensor, not a software vendor: as of 2026-08-04 it publishes no
+> public API, developer portal, machine-readable specification, SDK, MCP server,
+> or agent card.
+
+## API surface
+
+- No public API. Probes of www.genomatica.com and every candidate API/docs
+  subdomain returned 404 or did not resolve.
+- The only OpenAPI endpoint found anywhere on a Genomatica host is
+  https://productportal.genomatica.com/swagger.json, which returns HTTP 401 with
+  `WWW-Authenticate: Basic realm="Openapi Specification"`. That portal is a
+  Genomatica-branded storefront running the third-party Agilis Commerce
+  platform, and its specification is credential-gated, so no contract can be
+  harvested.
+- No GraphQL endpoint, no AsyncAPI, no webhooks, no MCP server, and no A2A agent
+  card were found. See well-known/genomatica-well-known.yml for every probed URL
+  and its HTTP status.
+
+## Products (chemistry, not software)
+
+- [Geno BDO](https://www.genomatica.com/bdo/): bio-based 1,4-butanediol; process licensed to producers including BASF and Novamont
+- [Plant-based nylon](https://www.genomatica.com/nylon/): plant-derived nylon-6 intermediates, developed with lululemon and manufacturing partners Hyosung and Sojitz
+- [Products overview](https://www.genomatica.com/products/): Brontide butylene glycol, Avela (R)-1,3-butanediol, palm-oil alternatives, fragrance building blocks
+
+## Company
+
+- [Website](https://www.genomatica.com/)
+- [Our story](https://www.genomatica.com/our-story/)
+- [Impact](https://www.genomatica.com/impact/)
+- [News](https://www.genomatica.com/news/) ([RSS](https://www.genomatica.com/feed/))
+- [Press releases](https://www.genomatica.com/press-releases/)
+- [Contact](https://www.genomatica.com/contact/)
+- [Careers](https://www.genomatica.com/careers/)
+- [GitHub organization](https://github.com/genomatica) (no public repositories)
+- [Terms of use](https://www.genomatica.com/terms-of-use/)
+- [Privacy policy](https://www.genomatica.com/privacy-policy/)
+
+## This profile
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/genomatica/refs/heads/main/apis.yml)
+- [Discovery probe log](https://raw.githubusercontent.com/api-evangelist/genomatica/refs/heads/main/well-known/genomatica-well-known.yml)
+- [Domain security probe](https://raw.githubusercontent.com/api-evangelist/genomatica/refs/heads/main/security/genomatica-domain-security.yml)
+
+Generated 2026-08-04 by the API Evangelist enrichment pipeline from apis.yml and
+this repository's artifacts. Genomatica does not publish an llms.txt of its own
+(https://www.genomatica.com/llms.txt returns 404).

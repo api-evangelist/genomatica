@@ -1,17 +1,39 @@
 aid: genomatica
 name: Genomatica
-description: 'Genomatica is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Genomatica (which markets itself as Geno) is a San Diego, California
+  biotechnology and sustainable materials company founded in 1998 that engineers microbes
+  and fermentation processes to make widely used chemical building blocks from plants
+  instead of fossil fuels. Its commercialized process technology covers Geno BDO (bio-based
+  1,4-butanediol, licensed to partners including BASF and Novamont), Brontide butylene
+  glycol for personal care, Avela (R)-1,3-butanediol, plant-based nylon-6 intermediates
+  developed with lululemon and manufacturing partners such as Hyosung and Sojitz, plus
+  palm-oil alternatives and fragrance building blocks. Genomatica licenses its process
+  technology to chemical producers rather than operating a software platform; as of
+  this profile it publishes no public developer portal, API documentation, machine-readable
+  specification, or agent-facing discovery surface.'
+image: https://www.genomatica.com/wp-content/uploads/2023/01/geno-brandmark-primary-RGB.png
 url: https://raw.githubusercontent.com/api-evangelist/genomatica/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
-x-tier-reason: harvest
+x-tier-reason: no-public-api-surface
 specificationVersion: '0.20'
+x-enrichment:
+  date: '2026-08-04'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Biotechnology
+- Sustainability
+- Materials
+- Chemicals
+- Manufacturing
+- Renewable
+- Industrial Biotech
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +41,37 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/genomatica-domain-security.yml
 - type: Website
+  url: https://www.genomatica.com/
+- type: Blog
+  url: https://www.genomatica.com/news/
+- type: BlogRSS
+  url: https://www.genomatica.com/feed/
+- type: PressReleases
+  url: https://www.genomatica.com/press-releases/
+- type: Products
+  url: https://www.genomatica.com/products/
+- type: Support
+  url: https://www.genomatica.com/contact/
+- type: TermsOfService
+  url: https://www.genomatica.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.genomatica.com/privacy-policy/
+- type: GitHubOrganization
+  url: https://github.com/genomatica
+- type: Careers
+  url: https://www.genomatica.com/careers/
+- type: Listing
+  name: Forge Global secondary-market listing
   url: https://forgeglobal.com/genomatica_stock/
+- type: CustomerPortal
+  name: Genomatica product portal (third-party Agilis Commerce storefront)
+  url: https://productportal.genomatica.com/
+- type: LLMsTxt
+  name: API Evangelist generated llms.txt
+  url: llms/genomatica-llms.txt
+- type: DiscoveryProbe
+  name: Contract + well-known discovery probe log
+  url: well-known/genomatica-well-known.yml

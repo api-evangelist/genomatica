@@ -1,0 +1,110 @@
+generated: '2026-08-04'
+method: probed
+source: live HTTP probes of every Genomatica host reachable from apis.yml
+summary: >-
+  No /.well-known/ discovery document is published on any Genomatica host. The
+  corporate site (www.genomatica.com, WordPress) returns 404 for every probed
+  path. The one non-corporate host, productportal.genomatica.com, is a
+  Genomatica-branded storefront running the third-party Agilis Commerce SaaS
+  platform; it answers 200 with the same 3,138-byte single-page-app HTML shell
+  for every unknown path, so its 200s are catch-all false positives and are
+  recorded as such. The only real machine-readable contract found anywhere is
+  an OpenAPI/Swagger endpoint on that portal, and it is HTTP Basic gated.
+documents: []
+hosts:
+- host: www.genomatica.com
+  note: corporate site (WordPress / Yoast); no discovery documents
+  probes:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /.well-known/change-password, status: 404}
+  - {path: /openapi.json, status: 404}
+  - {path: /openapi.yaml, status: 404}
+  - {path: /swagger.json, status: 404}
+  - {path: /api-docs, status: 404}
+  - {path: /llms.txt, status: 404}
+  - {path: /security.txt, status: 404}
+  - {path: /security, status: 404}
+  - {path: /trust, status: 404}
+  - {path: /compliance, status: 404}
+  - {path: /responsible-disclosure, status: 404}
+  - {path: /robots.txt, status: 200, note: 'Yoast block; sitemap only'}
+  - {path: /sitemap_index.xml, status: 200}
+- host: productportal.genomatica.com
+  note: >-
+    Genomatica-branded customer product portal built on Agilis Commerce
+    (manifest.json name "Agilis Commerce"; nginx + "agw" gateway cookie;
+    CNAME proxy-ssl.agilishost.com). Every unrecognized path returns the
+    3,138-byte React SPA shell with HTTP 200 — treat those 200s as catch-all,
+    not as discovery hits.
+  probes:
+  - {path: /swagger.json, status: 401, note: 'WWW-Authenticate: Basic realm="Openapi
+      Specification" — a real OpenAPI endpoint exists here but is credential-gated'}
+  - {path: /swagger, status: 401, note: same Basic realm}
+  - {path: /swagger-ui, status: 401, note: same Basic realm}
+  - {path: /swagger/index.html, status: 401, note: same Basic realm}
+  - {path: /docs, status: 401, note: 'application/json {"success":false,"message":"authentication
+      failed"} — authenticated API gateway'}
+  - {path: /api, status: 404}
+  - {path: /api/v1, status: 404}
+  - {path: /api/openapi.json, status: 404}
+  - {path: /api/swagger.json, status: 404}
+  - {path: /api/docs, status: 404}
+  - {path: /api/graphql, status: 404}
+  - {path: /api-docs, status: 404}
+  - {path: /graphql, status: 405, note: POST introspection rejected — 405 Not Allowed
+      at nginx; no GraphQL surface}
+  - {path: /.well-known/agent-card.json, status: 200, note: SPA catch-all HTML — NOT
+      an agent card}
+  - {path: /.well-known/agent.json, status: 200, note: SPA catch-all HTML — NOT an
+      agent card}
+  - {path: /.well-known/security.txt, status: 200, note: SPA catch-all HTML — not a
+      security.txt}
+  - {path: /.well-known/openid-configuration, status: 200, note: SPA catch-all HTML}
+  - {path: /.well-known/oauth-authorization-server, status: 200, note: SPA catch-all
+      HTML}
+  - {path: /.well-known/oauth-protected-resource, status: 200, note: SPA catch-all
+      HTML}
+  - {path: /.well-known/api-catalog, status: 200, note: SPA catch-all HTML}
+  - {path: /llms.txt, status: 200, note: SPA catch-all HTML — not an llms.txt}
+  - {path: /robots.txt, status: 200}
+  - {path: /manifest.json, status: 200, note: 'identifies the platform: "Agilis Commerce"'}
+hosts_not_resolving:
+- api.genomatica.com
+- docs.genomatica.com
+- developer.genomatica.com
+- portal.genomatica.com
+- login.genomatica.com
+- app.genomatica.com
+- my.genomatica.com
+- customers.genomatica.com
+- partners.genomatica.com
+- data.genomatica.com
+- platform.genomatica.com
+- status.genomatica.com
+- support.genomatica.com
+- help.genomatica.com
+excluded_hosts:
+- host: geno.com
+  reason: >-
+    Not operated by Genomatica. Returns HTTP 202 with an sgcaptcha redirect
+    shell for every path, including /.well-known/agent-card.json — a uniform
+    false positive. Genomatica's "Geno" brand lives on genomatica.com.
+contract_discovery:
+  openapi: gated
+  openapi_evidence: https://productportal.genomatica.com/swagger.json returns 401 with
+    WWW-Authenticate:Basic realm="Openapi Specification"
+  graphql: none
+  mcp: none
+  agent_card: none
+  asyncapi: none
+  conclusion: >-
+    Genomatica publishes no public machine-readable API contract. The only
+    OpenAPI endpoint discovered belongs to its third-party Agilis Commerce
+    storefront and is credential-gated, so no spec can be harvested without
+    authorization. Nothing was generated or derived in its place.

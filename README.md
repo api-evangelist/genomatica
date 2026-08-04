@@ -42,5 +42,22 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Genomatica is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/genomatica_stock/
+Genomatica (which markets itself as Geno) is a San Diego, California biotechnology and sustainable
+materials company founded in 1998 that engineers microbes and fermentation processes to make widely
+used chemical building blocks from plants instead of fossil fuels — Geno BDO (bio-based
+1,4-butanediol, licensed to partners including BASF and Novamont), Brontide butylene glycol, Avela
+(R)-1,3-butanediol, plant-based nylon-6 intermediates developed with lululemon and manufacturing
+partners such as Hyosung and Sojitz, plus palm-oil alternatives and fragrance building blocks.
+
+**API surface: none published.** Genomatica licenses process technology to chemical producers rather
+than operating a software platform. Probes on 2026-08-04 found no public API, developer portal,
+OpenAPI/AsyncAPI/GraphQL contract, SDK, MCP server, `llms.txt`, or A2A agent card on any Genomatica
+host. The only OpenAPI endpoint found anywhere is `https://productportal.genomatica.com/swagger.json`,
+which belongs to a Genomatica-branded storefront running the third-party Agilis Commerce platform and
+returns HTTP 401 behind `WWW-Authenticate: Basic realm="Openapi Specification"` — credential-gated, so
+nothing could be harvested. Every probed URL and its HTTP status is recorded in
+[`well-known/genomatica-well-known.yml`](well-known/genomatica-well-known.yml).
+
+- https://www.genomatica.com/
+- https://github.com/genomatica
+- https://forgeglobal.com/genomatica_stock/ (secondary-market listing this profile was harvested from)
