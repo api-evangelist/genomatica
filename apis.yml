@@ -17,7 +17,7 @@ x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
 x-tier-reason: no-public-api-surface
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 x-enrichment:
   date: '2026-08-04'
   status: minimal
