@@ -11,6 +11,17 @@ description: 'Genomatica (which markets itself as Geno) is a San Diego, Californ
   technology to chemical producers rather than operating a software platform; as of
   this profile it publishes no public developer portal, API documentation, machine-readable
   specification, or agent-facing discovery surface.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.genomatica.com/wp-content/uploads/2023/01/geno-brandmark-primary-RGB.png
 url: https://raw.githubusercontent.com/api-evangelist/genomatica/refs/heads/main/apis.yml
 x-type: company
