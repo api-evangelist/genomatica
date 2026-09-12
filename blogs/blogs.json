@@ -2,20 +2,20 @@
   "repo": "genomatica",
   "feeds": [
     {
-      "source": "https://www.genomatica.com/",
-      "feed_url": "https://www.genomatica.com/",
+      "source": "https://www.genomatica.com/news/",
+      "feed_url": "https://www.genomatica.com/news/",
       "title": "",
       "saved": 0,
       "method": "none"
     },
     {
-      "source": "https://www.genomatica.com/news/",
-      "feed_url": "https://www.genomatica.com/news/",
+      "source": "https://www.genomatica.com/",
+      "feed_url": "https://www.genomatica.com/",
       "title": "",
       "saved": 0,
       "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-30T22:33:40Z"
+  "fetched": "2026-09-06T19:17:18Z"
 }
